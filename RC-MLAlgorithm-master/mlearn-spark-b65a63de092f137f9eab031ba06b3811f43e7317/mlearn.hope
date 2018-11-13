@@ -1,0 +1,42 @@
+# 表示作业的类型，自动填充，请勿修改
+[type]
+type = spark
+  
+# 作业执行信息
+[job_info]
+
+# 表示作业执行时使用的hadoop账号，请修改为本组的hadoop账号，否则会报错
+usergroup = hadoop-payrc
+
+# 表示spark的版本信息,默认使用最新的spark-latest版本,目前对应spark1.5
+# 备选集合[spark-1.3, spark-1.4, spark-latest]
+spark_version = spark-latest
+
+# 作业对应的主类名
+class = com.sankuai.payrc.mlearn.spark.SparkArchetype
+  
+# 执行作业必须的参数，提供默认配置，可以修改，不能删除
+[env_args]
+
+
+# 选择作业提交的队列
+queue = root.hadoop-payrc.query
+
+master = yarn-client
+driver-memory = 2G
+executor-memory = 2G
+executor-cores = 2
+
+# 是否开启动态资源分配,默认开启
+is_dynamic_allocation = true
+
+# 开启动态资源分配后该参数表示最大executor数
+num-executors = 50
+  
+# 执行作业非必须的参数，提供默认配置，可以修改，删除
+[option_env_args]
+#spark.yarn.executor.memoryOverhead = 1024
+
+# 作业参数，可以不填，在执行命令中指定
+[args]
+args =
